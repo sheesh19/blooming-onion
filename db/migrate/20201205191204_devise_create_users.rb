@@ -6,6 +6,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :username,              null: false, default: ""
+      t.string :first_name,              null: false, default: ""
+      t.string :last_name,              null: false, default: ""
+      t.integer :age,              null: false, default: 0
+      t.string :gender,              null: false, default: ""
+      t.boolean :verified,              null: false, default: false
+      t.string :photo_url,              null: false, default: "https://www.dovercourt.org/wp-content/uploads/2019/11/610-6104451_image-placeholder-png-user-profile-placeholder-image-png.jpg"
+
 
       ## Recoverable
       t.string   :reset_password_token
