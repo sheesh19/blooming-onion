@@ -30,9 +30,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
 
+gem 'pg_search', '~> 2.3.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'acts-as-taggable-on', '~> 6.0'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
