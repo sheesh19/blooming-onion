@@ -1,0 +1,35 @@
+<div class ="container">
+  <div class="product-top-nav">
+    <h2>Cosmetic Main Listing</h2>
+    <%= render 'shared/productsearchbarform' %>
+  </div>
+
+  <div id="product-search-flex">
+
+    <div id="products-index-sidebar">
+        <%= render partial: 'shared/filterform' %>
+    </div>
+
+    <div class="main-container">
+      <div class="cards">
+        <% @products.each do |product| %>
+          <div class="ingredient-details">
+            <img src= "<%=product.img %>" style="width: 300px" />
+            <div class="card-product-infos">
+                <h2><%= link_to "#{product.title} - #{product.brand.name}", product_path(product), class: 'card-link'%></h2>
+                <p><%= product.oneliner%></p> 
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= link_to "Take me home", root_path, class:"btn-primary" %>
+    <%= link_to "back to ingredient search", ingredients_path, class:"btn-primary" %>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,34 @@
+<div class="container">
+    <h1> <%= @ingredient.name %> </h1>
+
+    <div class="container card">
+        <p> description: <%= @ingredient.description %> </p>
+        <ul>
+        <li> safety rating: <%= @ingredient.safety_rating %> </li> <!-- calling instance method from Ingredient model, look inside model-->
+        <li> efficacy rating: <%= @ingredient.efficacy_rating %> </li> <!-- calling instance method from Ingredient model-->
+        </ul>
+    </div>
+
+    <div class="container card">
+        <% @ingredient.ingredient_reviews.each do |ingredient_review| %>
+        <h3> review title: <%= ingredient_review.title %> </h3>
+        <p> review content: <%= ingredient_review.content %> </p>
+        <p> efficacy_rating: <%= ingredient_review.efficacy_rating %> </p>
+        <p> safety_rating: <%= ingredient_review.safety_rating %> </p>
+        <% end %>
+    </div>
+
+    <% if current_user %>
+    <% if current_user.verified  %>
+        <div class="container">
+        <%= render partial: 'ingredient_reviews/form' %>
+        </div>
+    <% end %>
+    <% end %>
+
+    <%= link_to "Take me home", root_path, class:"btn-primary" %>
+    <%= link_to "back to product search", products_path, class:"btn-primary" %>
+    <%= link_to "back to ingredient search", ingredients_path, class:"btn-primary" %>
+
+</div>
+

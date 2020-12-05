@@ -1,0 +1,43 @@
+<% ingredient_preferences = %w(Alcohol-free Fragance-free Gluten-free Hypoallergenic Naturally\ derived Oil-free Parabens-free Phthalate-free Silicone-free Suplhate-free Vegan) %>
+<% skin_concerns = %w(Blemishes Dark\ circles Dehydration Dullness Fine\ lines Loss\ of\ firmness Pigmentation Puffiness Redness Sun\ damage Uneven\ skin\ texture Uneven\ skin\ tone Visible\ pores Wrinkles) %>
+<% skin_types = ["All", "Extra Oily", "Oily", "Combination", "Dry", "Extra Dry", "Sensitive", "Normal"] %>
+<% form = %w(Balm Cream Gel Lotion Powder Sheet) %>
+
+
+<h2>Ingredient preferences</h2>
+<% ingredient_preferences.each do |tag|  %>
+    <%= link_to tag, products_path(tag: tag), class: "tag" %>
+<% end %>
+
+<h2>Skin concerns</h2>
+<% skin_concerns.each do |tag|  %>
+    <%= link_to tag, products_path(tag: tag), class: "tag" %>
+<% end %>
+
+<h2>Skin types</h2>
+<% skin_types.each do |tag|  %>
+    <%= link_to tag, products_path(tag: tag), class: "tag" %>
+<% end %>
+
+
+<h2>Form</h2>
+<% form.each do |tag|  %>
+    <%= link_to tag, products_path(tag: tag), class: "tag" %>
+<% end %>
+
+<script>
+  const tags = document.querySelectorAll(".tag");
+  Array.from(tags).forEach((tag) => {
+    tag.addEventListener('click', (e) => {
+      e.preventDefault();
+      var tagName = e.currentTarget.innerHTML;
+      var url = window.location.href;
+      var urlObject = new URL(url.toString());
+      urlObject.searchParams.append("tag[]", tagName);
+      console.log(urlObject);
+      // window.history.pushState({}, '', urlObject.href);
+      window.location.href = urlObject.href;
+    });
+  });
+</script>
+

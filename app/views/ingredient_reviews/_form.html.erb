@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Leave a review</h1>
+    <%   skin_concerns = [ "Sun damage", "Pigmentation", "Fine lines and wrinkles", "Sensitivity", "Breakouts/Acne", "Dullness", "Elasticity", "Rosacea", "Enlarged Pores", "Excessive Oiliness", "Dryness", "Eczema", "Allergies", "Psoriasis", "Hives", "Dermatitis"]
+ %>
+    <%= simple_form_for([@ingredient, @ingredient_review]) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.input :supporting_evidence %>
+      <%= f.input :safety_rating, collection: (0..10) %>
+      <%= f.input :efficacy_rating, collection: (0..10) %>
+      <%= f.input :skin_concern, collection: skin_concerns %>
+      <%= f.button :submit, 'Leave a Review' %>
+      <% end %>
+</div>
+
+

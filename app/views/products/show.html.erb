@@ -1,0 +1,41 @@
+
+
+<div class="container">
+  <h1><%= @product.title %> </h1>
+
+    <div class="container card">
+        <img src= "<%=@product.img %>" style="width: 300px" />
+        <p> brand: <%= @product.brand.name %> </p>
+        <p> description: <%= @product.description %> </p>
+        <ul>
+            <li> safety rating: <%= @product.safety_rating %> </li> <!-- calling instance method from Ingredient model, look inside model-->
+            <li> efficacy rating: <%= @product.efficacy_rating %> </li> <!-- calling instance method from Ingredient model-->
+        </ul>
+        <% @product_ingredients.each do |product_ingredient| %>
+            <ul>
+            <li> <%= product_ingredient.ingredient.name %>  </li>
+            </ul>
+        <% end %>
+    </div>
+
+    <div class="container">
+
+        <% @product.product_reviews.each do |product_review| %>
+            <div class="container card-product">
+                <p>Title: <%= product_review.title %></p>
+                <p>Content: <%= product_review.content %></p>
+                <p>User recommeded?: <%= product_review.recommended %></p>
+                <p>Skin concern: <%= product_review.skin_concern %></p>
+                <p>Rating: <%= product_review.product_rating %></p>
+                <p>Review by: <%= product_review.user.username %></p>
+            </div>
+        <% end %>
+
+        <% if current_user %>
+            <div class="container">
+                <%= render partial: 'product_reviews/form' %>
+            </div>
+        <% end %>
+    </div>
+</div>
+

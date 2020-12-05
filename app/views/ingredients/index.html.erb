@@ -1,0 +1,51 @@
+
+<div class="container">
+
+    <%= render 'shared/ingredientsearchbarform' %>
+
+    <div class="centre-container mt-5">
+        <h2>Search by Ingredient</h2>
+        <div id="search-and-results">
+            <h2>search Q</h2>
+            <h2>count</h2>
+        </div>
+        <div class="container">
+
+
+    <% ingredient_names = [] %>
+        <% @ingredients.each do |ingredient| %>
+        <% ingredient_names << ingredient %>
+    <% end %>
+
+    <%= simple_form_for :search, url: ingredients_path, method: :get do |f| %>
+    <%= f.input :name, label: "Name",  collection: ingredient_names, as: :check_boxes %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+    <%= link_to "Reset", root_path  %>
+    <% end %>
+
+    </div>
+
+    <div id="ingredient-card-container">
+            <% @ingredients.each do |ingredient| %>
+                <div class="ingredient-details">
+                    <img class="ingredient-index-img" style="width: 300px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <div class="ingredient-card-infos">
+                        <h2> <%= link_to ingredient.name, ingredient_path(ingredient) %></h2>
+                        <p> <%= ingredient.description %> </p>
+                        <p> average safety rating: <%= ingredient.average_safety_rating %> </p>
+                        <p> average efficacy rating: <%= ingredient.average_efficacy_rating %> </p>
+                        <p> <% ingredient.tag_list.each do |tag| %>
+                          tags: <%= tag %>
+                        </p>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <%= link_to "Take me home", root_path, class:"btn-primary" %>
+        <%= link_to "back to product search", products_path, class:"btn-primary" %>
+        <%= link_to "back to ingredient search", ingredients_path, class:"btn-primary" %>
+    <div>
+</div>
