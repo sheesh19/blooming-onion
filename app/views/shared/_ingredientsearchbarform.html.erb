@@ -1,0 +1,9 @@
+<%= form_tag ingredients_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an ingredient"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= link_to "Clear Search", ingredients_path, class:"btn btn-primary" %>
+<% end %>
