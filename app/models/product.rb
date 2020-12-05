@@ -1,10 +1,10 @@
 class Product < ApplicationRecord
-  # acts_as_taggable_on :tags
-  # acts_as_taggable_on :conditions
-  # acts_as_taggable_on :ingredient_preferences
-  # acts_as_taggable_on :skin_concerns
-  # acts_as_taggable_on :skin_types
-  # acts_as_taggable_on :accreditations
+  acts_as_taggable_on :tags
+  acts_as_taggable_on :conditions
+  acts_as_taggable_on :ingredient_preferences
+  acts_as_taggable_on :skin_concerns
+  acts_as_taggable_on :skin_types
+  acts_as_taggable_on :accreditations
 
   belongs_to :brand
   has_many :product_ingredients
