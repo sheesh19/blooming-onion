@@ -1,6 +1,6 @@
-class CreateIngredientreviews < ActiveRecord::Migration[6.0]
+class CreateIngredientReviews < ActiveRecord::Migration[6.0]
   def change
-    create_table :ingredientreviews do |t|
+    create_table :ingredient_reviews do |t|
       t.integer :safety_rating
       t.integer :efficacy_rating
       t.string :title
