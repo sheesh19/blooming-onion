@@ -17,9 +17,9 @@
     <% end %>
 
     <%= simple_form_for :search, url: ingredients_path, method: :get do |f| %>
-    <%= f.input :name, label: "Name",  collection: ingredient_names, as: :check_boxes %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-    <%= link_to "Reset", root_path  %>
+        <%= f.input :name, label: "Name",  collection: ingredient_names, as: :check_boxes %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+        <%= link_to "Reset", root_path  %>
     <% end %>
 
     </div>
